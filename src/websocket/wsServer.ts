@@ -11,7 +11,7 @@ export const server = () => {
 
   wss.on('connection', async (ws) => {
     console.log(`New client connected!`);
-    const duplex = WebSocket.createWebSocketStream(ws, { encoding: 'utf-8', decodeStrings: false})
+    const duplex = WebSocket.createWebSocketStream(ws, { encoding: 'utf-8', decodeStrings: false })
 
     duplex.on('data', (data: string) => {
       console.log(`Received: ${data}`)
