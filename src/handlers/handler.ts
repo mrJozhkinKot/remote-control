@@ -1,9 +1,9 @@
-import { MOUSE_UP, MOUSE_LEFT, MOUSE_RIGHT, MOUSE_DOWN, DRAW_RECTANGLE, DRAW_SQUARE, DRAW_CIRCLE, MOUSE_POSITION } from "./commands"
-import { mouse, left, right, up, down, Button } from '@nut-tree/nut-js';
+import { MOUSE_UP, MOUSE_LEFT, MOUSE_RIGHT, MOUSE_DOWN, DRAW_RECTANGLE, DRAW_SQUARE, DRAW_CIRCLE, MOUSE_POSITION, PRNT_SCRN } from "./commands"
 import { drawRectangle } from "./drawRectangle";
 import { drawSquare } from "./drawSquare";
 import { drawCircle } from "./drawCircle";
 import { getMousePosition } from "./getMousePosition";
+import { printScreen } from "./printScreen";
 import internal from "stream";
 import { moveMouse } from "./moveMouse";
 
@@ -27,7 +27,10 @@ export const handler = (duplex: internal.Duplex, cmd: string, args: string) => {
     break 
     case DRAW_SQUARE: drawSquare(duplex, cmd, width)
     break
-    case DRAW_CIRCLE: drawCircle(cmd, args)
+    case DRAW_CIRCLE: drawCircle(duplex, cmd, args)
+    break
+    case PRNT_SCRN: printScreen(duplex, cmd)
     break
   }
 }
+

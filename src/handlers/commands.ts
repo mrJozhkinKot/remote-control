@@ -6,3 +6,4 @@ export const DRAW_RECTANGLE = 'draw_rectangle';
 export const DRAW_SQUARE = 'draw_square';
 export const DRAW_CIRCLE = 'draw_circle';
 export const MOUSE_POSITION = 'mouse_position';
+export const PRNT_SCRN = 'prnt_scrn';

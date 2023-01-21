@@ -13,13 +13,18 @@ export const server = () => {
     console.log(`New client connected!`);
     const duplex = WebSocket.createWebSocketStream(ws, { encoding: 'utf-8', decodeStrings: false})
 
-    ws.on('message', (data) => {
-      console.log('received:', data);
-    });
+    duplex.on('data', (data: string) => {
+      console.log(`Received: ${data}`)
+    })
+
+    duplex.on('close', () => {
+      console.log(`Channel has closed`)
+    })
+
   
     for await (const chunk of duplex) {
       const [command, ...args] = chunk.split(' ');
-      console.log(`Send command ${chunk}, args: ${args} `)
+      console.log(`Send command ${chunk}`)
       try {
         handler(duplex, command, args)
       } catch (error) {
@@ -28,9 +33,8 @@ export const server = () => {
     }
  
     ws.on('close', () => {
-      console.log(`Client is disconnected!`);
+      console.log(`Client has disconnected!`);
       duplex.destroy();
     });
   });
-
 };
