@@ -10,8 +10,7 @@ export const drawCircle = async (duplex: internal.Duplex, cmd: string, args: str
     await mouse.pressButton(Button.LEFT);
     const rad = i * Math.PI/180
     const point = new Point(coord.x + (+args * Math.cos(rad)), coord.y + (+args * Math.sin(rad)))
-    mouse.config.mouseSpeed = 10000
-    mouse.move(straightTo(point))
+    await mouse.setPosition(point)
     await mouse.releaseButton(Button.LEFT);
    }
    duplex.write(cmd)

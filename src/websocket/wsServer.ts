@@ -6,7 +6,7 @@ export const server = () => {
   const wss = new WebSocketServer({
     port: 8080,
   });
-  console.log('Server is connected');
+  console.log('Server is connected!');
 
 
   wss.on('connection', async (ws) => {
@@ -24,7 +24,7 @@ export const server = () => {
   
     for await (const chunk of duplex) {
       const [command, ...args] = chunk.split(' ');
-      console.log(`Send command ${chunk}`)
+      console.log(`Send command: ${chunk}`)
       try {
         handler(duplex, command, args)
       } catch (error) {

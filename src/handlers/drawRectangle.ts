@@ -11,29 +11,3 @@ export const drawRectangle = async (duplex: internal.Duplex, cmd: string,  lengt
   await mouse.releaseButton(Button.LEFT);
   duplex.write(cmd)
 }
-
-// await mouse.pressButton(Button.LEFT);
-// await mouse.setPosition(new Point(coord.x - +length, coord.y))
-// coord = mouse.getPosition();
-// await mouse.releaseButton(Button.LEFT);
-// }
-// export const drawRectangle = async (duplex: internal.Duplex, cmd: string,  length: string, width: string) => 
-// { 
- 
-// await mouse.pressButton(Button.LEFT);
-// await mouse.setPosition(new Point(coord.x - +length, coord.y))
-// coord = await mouse.getPosition();
-// await mouse.releaseButton(Button.LEFT);
-// await mouse.pressButton(Button.LEFT);
-// coord = await mouse.getPosition();
-// await mouse.setPosition(new Point(coord.x, coord.y - +width))
-// coord = await mouse.getPosition();
-// await mouse.releaseButton(Button.LEFT);
-// await mouse.pressButton(Button.LEFT);
-// await mouse.setPosition(new Point(coord.x + +length, coord.y))
-// coord = await mouse.getPosition();
-// await mouse.releaseButton(Button.LEFT);
-// await mouse.pressButton(Button.LEFT);
-// await mouse.setPosition(new Point(coord.x, coord.y + +width))
-// coord = await mouse.getPosition();
-// await mouse.releaseButton(Button.LEFT);
